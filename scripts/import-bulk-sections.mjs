@@ -25,7 +25,20 @@ function adapt(content) {
 }
 
 for (const name of ['atelier-experiments', 'light-study', 'material-atelier', 'motion-text']) {
-  await jsx(name, adapt(await read(`components/${name}.tsx`)))
+  let component = adapt(await read(`components/${name}.tsx`))
+  // Keep the room study's dedicated photography when refreshing imported sections.
+  if (name === 'atelier-experiments') {
+    for (const [original, dedicated] of [
+      ['brand/lightings', 'rooms/quiet-home-antique-brass-v1'],
+      ['brand/furniture', 'rooms/boutique-hotel-polished-brass-v1'],
+      ['brand/kitchenware', 'rooms/gathered-table-hammered-metal-v1'],
+    ]) {
+      component = component.replace(`image: "${original}"`, `image: "${dedicated}"`)
+    }
+    component = component.replace('A hotel lounge with brass-framed seating and a hammered brass table', 'A boutique hotel lounge with polished brass pendants, a brass coffee table and brass-framed seating')
+    component = component.replace('Brass and copper serveware set on a table outdoors', 'Hammered brass bowls and tumblers with a copper pitcher on a linen-dressed garden table')
+  }
+  await jsx(name, component)
 }
 const brandContent = await read('lib/brand-content.ts')
 const content = await transform(brandContent + '\n' + await read('lib/home-content.ts'), {loader:'ts',target:'es2019'})

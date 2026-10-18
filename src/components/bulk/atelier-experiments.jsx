@@ -299,7 +299,7 @@ export function ObjectAnatomy() {
 const rooms = [
   {
     name: 'A quiet home',
-    image: 'brand/lightings',
+    image: 'rooms/quiet-home-antique-brass-v1',
     alt: 'Brass lamps and sconces in a calm, sunlit living space',
     finish: 'Antique brass',
     caption: 'A quiet home.',
@@ -307,16 +307,16 @@ const rooms = [
   },
   {
     name: 'A boutique hotel',
-    image: 'brand/furniture',
-    alt: 'A hotel lounge with brass-framed seating and a hammered brass table',
+    image: 'rooms/boutique-hotel-polished-brass-v1',
+    alt: 'A boutique hotel lounge with polished brass pendants, a brass coffee table and brass-framed seating',
     finish: 'Polished brass',
     caption: 'A warm welcome.',
     detail: 'Polished brass catches the eye and wears well.',
   },
   {
     name: 'A gathered table',
-    image: 'brand/kitchenware',
-    alt: 'Brass and copper serveware set on a table outdoors',
+    image: 'rooms/gathered-table-hammered-metal-v1',
+    alt: 'Hammered brass bowls and tumblers with a copper pitcher on a linen-dressed garden table',
     finish: 'Hammered brass & copper',
     caption: 'A gathered table.',
     detail: 'Hammered metal hides the marks of use.',

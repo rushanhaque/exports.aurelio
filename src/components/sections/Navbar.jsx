@@ -3,8 +3,8 @@
    appointment note) sits above a symmetric three-part bar: links
    left, the AURELIO mark dead-centre, links + a hairline ENQUIRE
    button right. Opaque white; turns transparent with white type
-   over the Heritage film (nav--invert). Hides on scroll-down,
-   returns on scroll-up; the letterhead retires once scrolled.
+   over the Heritage film (nav--invert). Stays visible while
+   scrolling, with a more compact bar below the top of the page.
    Mobile: burger left, mark centred, full-screen emerald menu.
    ============================================================ */
 import { useEffect, useRef, useState } from 'react'
@@ -51,8 +51,7 @@ export default function Navbar() {
   const isActive = (to) =>
     to === '/' ? path === '/' : path === to || path.startsWith(to + '/')
 
-  // Hide on scroll-down, return on scroll-up; retire the letterhead line
-  // once the reader has left the top of the page.
+  // Keep the bar fixed in view; only its spacing and colours change on scroll.
   useGSAP(
     () => {
       const nav = ref.current
@@ -61,20 +60,15 @@ export default function Navbar() {
         end: 99999,
         onUpdate: (self) => {
           nav.classList.toggle('nav--scrolled', self.scroll() > 60)
-          if (self.direction === 1 && self.scroll() > 240) nav.classList.add('nav--hidden')
-          else nav.classList.remove('nav--hidden')
         },
       })
     },
     { scope: ref }
   )
 
-  // On route change: close the menu and reveal the bar
+  // Close the mobile menu when navigating to another route.
   useEffect(() => {
     setOpen(false)
-    const nav = ref.current
-    if (!nav) return
-    nav.classList.remove('nav--hidden')
   }, [path])
 
   // Escape closes the full-screen menu while it is open; lock the page
