@@ -1,0 +1,30 @@
+{
+  "mode": "Built-in image_gen",
+  "created": "2026-10-18",
+  "assets": [
+    {
+      "slug": "hospitality-interiors",
+      "title": "Hospitality & interiors",
+      "prompt": "Use case: photorealistic-natural. Asset type: dedicated portrait 3:4 photograph for Aurelio's 'Hospitality & interiors' website card. Create an elegant, credible boutique hotel lounge featuring handcrafted metal and wood furniture: sculptural brushed brass pendant lights, a beautifully made brass and walnut console, one brass side table, cream upholstery and a muted deep emerald accent chair. Architectural interior photography, warm window daylight, natural shadows, true metal reflections and subtle handmade imperfections. Refined and understated, rich tactile materials, restrained palette of deep green, champagne brass, warm walnut and limestone. Compose the principal furniture and lighting in the central upper two thirds so they remain readable in a narrow portrait card and a centered landscape mobile crop. Lower third should be quieter, with darker natural tones for a website text overlay added later. A cohesive luxury export atelier campaign, realistic photographic detail, no people, no text, no typography, no signage, no logos, no watermark, no collage, no rendered website UI.",
+      "source": "C:/Users/rusha/.codex/generated_images/01a14e3e-f512-7a61-8f23-f31c17fdcc17/exec-a987acf7-9bdf-4ad9-9771-870a1b37877b.png"
+    },
+    {
+      "slug": "corporate-gifting",
+      "title": "Corporate gifting",
+      "prompt": "Use case: product-mockup. Asset type: dedicated portrait 3:4 editorial product photograph for Aurelio's 'Corporate gifting' website card. A refined corporate gift presentation on a walnut meeting table: an open deep emerald rigid presentation box with neatly fitted cream fabric lining holding a finely handcrafted brushed brass desk pen holder and a matching round brass catchall dish, with two simple brass pens. Nearby a matching closed emerald gift box with a narrow ivory ribbon subtly suggests a coordinated gifting programme. Gifts are unbranded with blank tasteful metal surfaces. Soft directional window daylight, warm natural highlights, authentic brushed metal texture, understated luxury, deep emerald, champagne brass, warm walnut and ivory palette. Compose the open gift and objects clearly within the central upper two thirds, leaving a quieter darker lower third for website text that will be added later; must also survive a centered 4:3 mobile crop. Real professional still-life photography, not glossy CGI. No people, no readable text, no logos, no stamps, no watermarks, no collage, no website UI.",
+      "source": "C:/Users/rusha/.codex/generated_images/01a14e3e-f512-7a61-8f23-f31c17fdcc17/exec-ba5a4c79-0f3a-4d4e-b832-4fe9128eceb6.png"
+    },
+    {
+      "slug": "retail-wholesale",
+      "title": "Retail & wholesale",
+      "prompt": "Use case: photorealistic-natural. Asset type: dedicated portrait 3:4 photograph for Aurelio's 'Retail & wholesale' website card. A beautiful independent homeware boutique displaying a coherent collection of handmade metal products for sale: grouped repeated designs of small brass vases, sculptural candleholders, shallow metal bowls and neatly stacked brass trays on warm walnut shelves with slender aged brass supports. Show the organized breadth and repeatability of a wholesale collection, with a foreground display table and a muted deep green wall, recognizable as a curated retail showroom rather than a private living room. Warm window light, subtle material imperfections, natural metal reflections, cream stone accents, quiet premium art direction consistent with a luxury Moradabad metal and wood atelier. Keep the merchandise in the central upper two thirds and the lower third naturally darker and less busy for text added later; suitable for both portrait 3:4 and centered landscape 4:3 cropping. Realistic architectural/product photography. No people, no text, no price labels, no brand marks, no watermarks, no collage, no website UI.",
+      "source": "C:/Users/rusha/.codex/generated_images/01a14e3e-f512-7a61-8f23-f31c17fdcc17/exec-20de9fa4-ccb2-4510-92cb-1cefe404d102.png"
+    },
+    {
+      "slug": "bespoke-projects",
+      "title": "Bespoke projects",
+      "prompt": "Use case: photorealistic-natural. Asset type: dedicated portrait 3:4 editorial workshop photograph for Aurelio's 'Bespoke projects' website card. An authentic refined artisan's workbench in a Moradabad metal and wood atelier: a unique partly assembled small sculptural brass table lamp with a curved stem, an unfinished brass shade and a carefully shaped walnut base, beside hand-drawn orthographic design sketches on cream paper, a pencil, a metal caliper and a few organized brass finish samples. The visual must clearly communicate an original drawing becoming a custom physical object. No people or hands. Soft side daylight, tactile scratches and natural brass patina, dark emerald workshop background, warm walnut, champagne brass and ivory palette matching a luxury atelier campaign. Frame the prototype and recognizable sketch prominently in the central upper two thirds, with a quieter darker lower third to receive website text later; allow a centered 4:3 mobile crop from the portrait composition. Believable craftsmanship, authentic photography, no CGI, no typography, no readable measurements, no logos, no watermark, no collage, no website UI.",
+      "source": "C:/Users/rusha/.codex/generated_images/01a14e3e-f512-7a61-8f23-f31c17fdcc17/exec-1e4aa790-e604-434b-824d-968f13095aa5.png"
+    }
+  ]
+}

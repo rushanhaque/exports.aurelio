@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://exports.aurelio.in/sitemap.xml

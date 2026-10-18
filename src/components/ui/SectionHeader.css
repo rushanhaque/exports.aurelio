@@ -1,0 +1,218 @@
+/* ============================================================
+   SectionHeader — the editorial spine. The kicker is now a
+   prominent section label whose letters cascade up on entry,
+   announcing each new section.
+   ============================================================ */
+
+.sh {
+  width: 100%;
+  margin-bottom: clamp(2.6rem, 4.2vw, 4.4rem);
+}
+
+/* ---- top row: section label (left) + index (right) ---- */
+.sh-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: clamp(1.7rem, 2.6vw, 2.6rem);
+}
+
+/* marker + kicker, grouped so the diamond rides beside the label */
+.sh-label {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.5rem, 0.3rem + 0.5vw, 0.95rem);
+  min-width: 0;
+}
+
+/* the section-opening diamond — a bold emerald cue (brand ◆ motif) that
+   makes the arrival of a new section unmistakable */
+.sh-mark {
+  flex-shrink: 0;
+  color: var(--emerald);
+  font-size: clamp(0.5rem, 0.34rem + 0.5vw, 0.9rem);
+  line-height: 1;
+  transform-origin: center;
+}
+
+/* the section label — large, tracked, emerald; letters in masks */
+.sh-kicker {
+  display: block;
+  font-family: var(--sans);
+  font-size: clamp(1.1rem, 0.8rem + 1.2vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  line-height: 1.05;
+}
+.sh-kicker-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.05;
+}
+.sh-kicker-ch {
+  display: inline-block;
+  white-space: pre;       /* preserve the inter-word space */
+  will-change: transform;
+}
+
+.sh-index {
+  flex-shrink: 0;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.18em;
+  white-space: nowrap;
+}
+.sh-paren { color: var(--fg-faint); opacity: 0.6; }
+.sh-num   { color: var(--emerald); font-weight: 600; }
+.sh-slash { color: var(--emerald); margin-inline: 0.12em; }
+.sh-total { opacity: 0.7; }
+
+/* ---- the drawing hairline, with a bold emerald lead-in tab ---- */
+.sh-rule {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--hairline);
+  transform-origin: left center;
+  transform: scaleX(1);
+  will-change: transform;
+}
+/* the emerald "tab" — a short, solid bar marking where the section begins */
+.sh-rule::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: clamp(36px, 6vw, 72px);
+  height: 3px;
+  background: var(--emerald);
+}
+
+/* ---- headline + lead ---- */
+.sh-body {
+  margin-top: clamp(1.6rem, 2.6vw, 2.5rem);
+}
+
+.sh-title {
+  color: var(--fg);
+  max-width: 18ch;
+}
+.sh-title.display { max-width: 14ch; }
+
+/* One house size for every section subheading — the Collections title's size.
+   Scoped to .sh so it overrides whatever h1/h2/display utility is passed via
+   titleClass, keeping all section headings uniform. */
+.sh .sh-title { font-size: clamp(1.9rem, 1rem + 2.4vw, 3.8rem); }
+
+.sh-lead {
+  margin-top: clamp(1.5rem, 2.4vw, 2.2rem);
+  max-width: 52ch;
+}
+
+/* ============================================================
+   ALIGN — center variant (for closing CTA-style headers)
+   ============================================================ */
+.sh--center { text-align: center; }
+.sh--center .sh-top { justify-content: center; gap: clamp(1.5rem, 4vw, 3rem); }
+.sh--center .sh-kicker { display: inline-block; }
+.sh--center .sh-title { max-width: none; margin-inline: auto; }
+.sh--center .sh-lead { margin-inline: auto; }
+.sh--center .sh-rule { transform-origin: center; }
+.sh--center .sh-rule::before { left: 50%; transform: translateX(-50%); }
+
+/* ============================================================
+   RESPONSIVE
+   The desktop look is untouched above; these layers only tune
+   small screens — graceful wrap of the kicker/index row, a
+   slightly tighter title, and a calmer hairline tab.
+   ============================================================ */
+
+/* ---- tablet ---- */
+@media (max-width: 900px) {
+  .sh { margin-bottom: clamp(2.2rem, 5vw, 3.6rem); }
+  .sh-top { gap: 1.1rem; margin-bottom: clamp(1.4rem, 3vw, 2.2rem); }
+  .sh-body { margin-top: clamp(1.4rem, 3vw, 2.2rem); }
+}
+
+/* ---- phone ---- */
+@media (max-width: 640px) {
+  /* let the index drop below the label cleanly instead of crushing it */
+  .sh-top {
+    gap: 0.7rem 1rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .sh-label { flex: 1 1 100%; min-width: 0; }
+  .sh-index { flex: 0 0 auto; }
+
+  /* nudge the section label up a touch so it never feels cramped */
+  .sh-kicker {
+    letter-spacing: 0.1em;
+    font-size: clamp(1.15rem, 0.7rem + 3.4vw, 1.6rem);
+  }
+  .sh-mark { font-size: clamp(0.5rem, 0.3rem + 1.4vw, 0.72rem); }
+
+  /* title: relax the desktop max-width so lines aren't artificially short,
+     and ease the tracking so the serif never crowds itself on a phone */
+  .sh-title,
+  .sh-title.display { max-width: none; }
+  .sh .sh-title {
+    font-size: clamp(1.85rem, 1.2rem + 5.2vw, 2.9rem);
+    letter-spacing: -0.012em;
+  }
+
+  .sh-lead { max-width: none; margin-top: clamp(1.2rem, 4vw, 1.7rem); }
+
+  /* keep the emerald lead-in tab present but slightly trimmer */
+  .sh-rule::before { width: clamp(32px, 12vw, 56px); }
+
+  /* center variant: keep the row centered but allow the wrap */
+  .sh--center .sh-top { gap: 0.7rem 1.4rem; }
+}
+
+/* ---- small phone ---- */
+@media (max-width: 400px) {
+  .sh-kicker { letter-spacing: 0.085em; }
+  .sh .sh-title { font-size: clamp(1.7rem, 1rem + 6vw, 2.4rem); }
+  .sh-index { font-size: 0.74rem; }
+}
+
+/* ============================================================
+   MOBILE MOTION
+   A tasteful one-shot reveal for the title block + lead on phones.
+   GSAP already animates the kicker / index / rule via ScrollTrigger;
+   this CSS layer adds a gentle weighted slide-up so the body of the
+   header arrives with the same premium feel. Transform + opacity
+   only (60fps). Degrades through the global reduced-motion switch.
+   ============================================================ */
+@media (max-width: 640px) {
+  @keyframes sh-rise {
+    from { opacity: 0; transform: translate3d(0, 16px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+
+  .sh-body {
+    animation: sh-rise 0.9s var(--ease-silk) both;
+    /* let GSAP's title split-reveal lead, then the surrounding block settles */
+    animation-delay: 0.12s;
+  }
+  .sh-lead {
+    animation: sh-rise 1s var(--ease-silk) both;
+    animation-delay: 0.26s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-body,
+  .sh-lead { animation: none; }
+}

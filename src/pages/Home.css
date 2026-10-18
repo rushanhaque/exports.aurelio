@@ -1,0 +1,30 @@
+/* Continue the imported green / white rhythm through the original sections.
+   The component tokens also recolour dividers, ratings and interactive states. */
+.home-page :is(.man, .jrn) {
+  --bg: #092c21;
+  --fg: #f8f3e8;
+  --fg-soft: #c2cfc5;
+  --fg-faint: #a6bbae;
+  --ink: #f8f3e8;
+  --ink-soft: #c2cfc5;
+  --ink-faint: #a6bbae;
+  --ivory: #f8f3e8;
+  --emerald: #f8f3e8;
+  --emerald-soft: #c2cfc5;
+  --brass: #d9c297;
+  --brass-soft: #d9c297;
+  --brass-pale: #d9c29766;
+  --hairline: #f8f3e82e;
+  --line: #f8f3e82e;
+  --line-mid: #f8f3e83d;
+  --line-strong: #f8f3e861;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.home-page .man-bg-num { color: #f8f3e80d; }
+.home-page .rev-plate { background: #f8f3e809; }
+
+@media (max-width: 640px) {
+  .home-page .man .sh-kicker { font-size: clamp(1rem, 4.8vw, 1.25rem); }
+}

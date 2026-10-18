@@ -1,0 +1,220 @@
+/* ============================================================
+   The Aurelio Standard — light paper, monograph air.
+   ============================================================ */
+
+.man {
+  background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+/* faint corner numeral — folio mark, not decoration */
+.man-bg-num {
+  position: absolute;
+  bottom: -0.16em;
+  right: clamp(-1rem, -1vw, 0rem);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(16rem, 30vw, 34rem);
+  line-height: 1;
+  color: rgba(14, 59, 44, 0.05); /* faint emerald ghost on white */
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  /* gentle one-shot drift-in — transform/opacity only, 60fps */
+  animation: manNumIn 1.4s var(--ease-silk) both;
+  will-change: transform, opacity;
+}
+
+@keyframes manNumIn {
+  from { opacity: 0; transform: translateY(2.4rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.man-inner {
+  position: relative;
+  z-index: 1;
+  /* Use the standard container width so the kicker and statement sit at the
+     same left gutter as every other section (was a narrow centered column). */
+}
+
+/* The spine here carries no headline; zero the empty body's reserved
+   top space, and give a generous, editorial gap before the statement. */
+.man-inner .sh { margin-bottom: clamp(2.2rem, 4vw, 3.6rem); }
+.man-inner .sh-body { margin-top: 0; }
+
+/* ============================================================
+   THE STATEMENT — two-tone serif, block lines
+   ============================================================ */
+.man-statement {
+  margin-bottom: clamp(3.4rem, 7vw, 6rem);
+}
+
+.man-line {
+  font-family: var(--serif);
+  font-weight: 400;
+  display: block;
+}
+
+/* upright lines */
+.man-line--1 {
+  font-size: clamp(2.4rem, 1.4rem + 3.6vw, 5.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.014em;
+  color: var(--fg);   /* contextual → ivory on dark */
+}
+
+/* the turn — warm brass italic, the single emotional accent on dark */
+.man-line--2 {
+  font-size: clamp(2.7rem, 1.5rem + 4.4vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: -0.016em;
+  color: var(--brass-soft);   /* gold on deep green — richer than emerald-on-emerald */
+  margin-top: 0.16em;
+}
+
+/* ============================================================
+   FOOT — supporting prose + aside (credo + cta)
+   ============================================================ */
+.man-foot {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  padding-top: clamp(2.4rem, 4vw, 3.6rem);
+  border-top: 1px solid var(--hairline);   /* flips to line-light on dark */
+}
+
+.man-support {
+  max-width: 46ch;
+  min-width: 0;   /* grid child: never force the track wider than its track */
+}
+
+.man-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1.8rem, 3vw, 2.6rem);
+  min-width: 0;
+}
+
+/* credo — stacked, each with a brass tick */
+.man-credo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.man-credo-item {
+  position: relative;
+  padding-left: 1.6rem;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--fg-soft);   /* contextual → muted ivory on dark */
+}
+.man-credo-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.9rem;
+  height: 1px;
+  background: var(--brass);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet — ease the statement and tighten the foot rhythm. */
+@media (max-width: 900px) {
+  .man-statement {
+    margin-bottom: clamp(2.8rem, 6vw, 4.4rem);
+  }
+  .man-foot {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 6vw, 2.8rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+  }
+  /* prose can breathe full-width once the aside drops below it */
+  .man-support { max-width: 56ch; }
+}
+
+/* Phone — single column, full air, calmer numeral, slightly
+   softer tracking so the big serif never feels cramped. */
+@media (max-width: 640px) {
+  .man-inner .sh { margin-bottom: clamp(1.8rem, 7vw, 2.6rem); }
+
+  .man-statement {
+    margin-bottom: clamp(2.2rem, 8vw, 3.2rem);
+  }
+
+  .man-line--1 {
+    letter-spacing: -0.01em;
+    line-height: 1.06;
+  }
+  .man-line--2 {
+    letter-spacing: -0.012em;
+    line-height: 1.05;
+    margin-top: 0.1em;
+  }
+
+  .man-foot {
+    gap: clamp(1.6rem, 6vw, 2.2rem);
+    padding-top: clamp(1.6rem, 6vw, 2.4rem);
+  }
+  .man-support { max-width: none; }
+
+  .man-aside { gap: 1.6rem; }
+  .man-credo { gap: 1.05rem; }
+  /* expand the credo hit area for touch without changing the look */
+  .man-credo-item {
+    padding-block: 0.35rem;
+    padding-left: 1.5rem;
+  }
+  .man-credo-item::before {
+    top: calc(0.5em + 0.35rem);
+    /* sliding-underline draw-in — scaleX only, staggered per item */
+    transform-origin: left center;
+    animation: manTickDraw 0.9s var(--ease-silk) both;
+  }
+  .man-credo-item:nth-child(1)::before { animation-delay: 0.05s; }
+  .man-credo-item:nth-child(2)::before { animation-delay: 0.17s; }
+  .man-credo-item:nth-child(3)::before { animation-delay: 0.29s; }
+
+  /* Keep the folio numeral inside the viewport — pin it to the
+     right gutter and cap its size so it never forces a scroll. */
+  .man-bg-num {
+    font-size: clamp(11rem, 44vw, 17rem);
+    right: 0;
+    bottom: -0.1em;
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+@keyframes manTickDraw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Small phone — tighten the numeral and statement a touch more. */
+@media (max-width: 400px) {
+  .man-bg-num { font-size: clamp(9rem, 46vw, 12rem); }
+  .man-line--1 { letter-spacing: -0.006em; }
+  .man-line--2 { letter-spacing: -0.008em; }
+  .man-credo-item { letter-spacing: 0.2em; }
+}
+
+/* Honour the global reduced-motion kill-switch — the numeral
+   should simply be present, not drift in. */
+@media (prefers-reduced-motion: reduce) {
+  .man-bg-num {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,183 @@
+export const collectionIds = [
+  "urns",
+  "lighting",
+  "furniture",
+  "kitchenware",
+  "decor",
+  "accessories"
+];
+export const collections = [
+  {
+    slug: "urns",
+    name: "Urns",
+    index: "01",
+    cover: "brand/urns",
+    tagline: "Vessels that keep.",
+    summary: "Raised and cast urns.",
+    description: "The oldest form we make. Raised in copper or cast in bronze, built to last a century."
+  },
+  {
+    slug: "lighting",
+    name: "Lighting",
+    index: "02",
+    cover: "brand/lightings",
+    tagline: "Light, raised in metal.",
+    summary: "Lamps and pendants in brass and glass.",
+    description: "Spun, raised or cast by hand. Wired and balanced to hang quietly."
+  },
+  {
+    slug: "furniture",
+    name: "Furniture",
+    index: "03",
+    cover: "brand/furniture",
+    tagline: "Structure with a pulse.",
+    summary: "Tables and seating on forged metal frames.",
+    description: "Forged frames and honest joinery. Built to outlast the room."
+  },
+  {
+    slug: "kitchenware",
+    name: "Kitchenware",
+    index: "04",
+    cover: "brand/kitchenware",
+    tagline: "For the daily ritual.",
+    summary: "Cookware and serveware, polished by hand.",
+    description: "Cast, hammered and hand-polished. Made to be used hard."
+  },
+  {
+    slug: "decor",
+    name: "Decor",
+    index: "05",
+    cover: "brand/decor",
+    tagline: "Quiet sculpture.",
+    summary: "Vessels and sculptural objects.",
+    description: "Cast vessels and patinated reliefs. Sculpture for living with."
+  },
+  {
+    slug: "accessories",
+    name: "Accessories",
+    index: "06",
+    cover: "brand/accessories",
+    tagline: "The smaller heirlooms.",
+    summary: "Globes, hardware and desk objects.",
+    description: "Small objects, finished to the same standard as the large."
+  },
+  {
+    slug: "bespoke",
+    name: "Bespoke",
+    index: "07",
+    cover: "brand/bespoke",
+    tagline: "Drawn to your brief.",
+    summary: "Made entirely to your brief.",
+    description: "One object or a whole interior, developed with you from sketch to delivery."
+  }
+];
+export const materials = [
+  {
+    slug: "brass",
+    name: "Brass",
+    index: "01",
+    ratio: "16/15",
+    trait: "Warm \xB7 luminous \xB7 living",
+    blurb: "Our signature metal. It deepens from yellow to gold with age.",
+    note: "Lacquered, or left to patina.",
+    image: "brand/brass",
+    texture: "brand/brass-texture"
+  },
+  {
+    slug: "copper",
+    name: "Copper",
+    index: "02",
+    ratio: "16/15",
+    trait: "Soft \xB7 conductive \xB7 alive",
+    blurb: "Hammered by hand. It takes a rich patina, from verdigris to rose-gold.",
+    note: "Tinned for cookware, patinated for relief work.",
+    image: "brand/copper",
+    texture: "brand/copper-texture"
+  },
+  {
+    slug: "patinated-steel",
+    name: "Patinated Steel",
+    index: "03",
+    ratio: "16/15",
+    trait: "Structural \xB7 honest \xB7 dark",
+    blurb: "Forged and blackened. Strong without bulk.",
+    note: "Hand-blackened and waxed.",
+    image: "brand/steel",
+    texture: "brand/steel-texture"
+  },
+  {
+    slug: "bronze",
+    name: "Bronze",
+    index: "04",
+    ratio: "16/15",
+    trait: "Dense \xB7 ancient \xB7 permanent",
+    blurb: "Sand-cast and substantial. Its patina develops slowly.",
+    note: "Hand-polished, or left natural.",
+    image: "brand/bronze",
+    texture: "brand/bronze-texture"
+  },
+  {
+    slug: "blown-glass",
+    name: "Blown Glass",
+    index: "05",
+    ratio: "16/15",
+    trait: "Molten \xB7 breath \xB7 light",
+    blurb: "Mouth-blown and paired with metal. Opal, clear or smoked.",
+    note: "Each piece is unique.",
+    image: "brand/glass",
+    texture: "brand/glass-texture"
+  },
+  {
+    slug: "wood",
+    name: "Wood",
+    index: "06",
+    ratio: "16/15",
+    trait: "Grained \xB7 warm \xB7 counterweight",
+    blurb: "The warm counterpoint to metal. Oiled to wear in, not out.",
+    note: "Seasoned timber, finished to suit the piece.",
+    image: "brand/wood",
+    texture: "brand/wood-texture"
+  },
+  {
+    slug: "aluminium",
+    name: "Aluminium",
+    index: "07",
+    ratio: "16/15",
+    trait: "Light \xB7 satin \xB7 modern",
+    blurb: "The lightest metal we use. Spun and brushed to a cool satin.",
+    note: "Anodised or hand-brushed.",
+    image: "brand/aluminium",
+    texture: "brand/aluminium-texture"
+  },
+  {
+    slug: "porcelain",
+    name: "Porcelain",
+    index: "08",
+    ratio: "16/15",
+    trait: "Fired \xB7 pure \xB7 enduring",
+    blurb: "Slip-cast and high-fired. Smooth white, set against metal.",
+    note: "Hand-glazed, fired in small batches.",
+    image: "brand/porcelain",
+    texture: "brand/porcelain-texture"
+  },
+  {
+    slug: "ceramic",
+    name: "Ceramic",
+    index: "09",
+    ratio: "16/15",
+    trait: "Earthy \xB7 textured \xB7 handformed",
+    blurb: "Wheel-thrown in small batches. Raw clay, precise glazes.",
+    note: "Food-safe glazes available.",
+    image: "brand/ceramic",
+    texture: "brand/ceramic-texture"
+  }
+];
+export const homeContent = {
+  eyebrow: "THE MATERIAL ATELIER",
+  title: "A different kind of presence.",
+  intro: "Nine materials, each with its own character.",
+  sections: [
+    ["Look closer.", "Explore the surface and the grain."],
+    ["Make it yours.", "Start with a material. Bring us your idea."]
+  ]
+};

@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Collection Manrope'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url('/fonts/collection-story/manrope-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Collection Manrope'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('/fonts/collection-story/manrope-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Collection Cormorant'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url('/fonts/collection-story/cormorant-garamond-latin-500-normal.woff2') format('woff2');
+}
+
+/* Neutralise only host defaults absent from the source design. */
+.imported-bulk { letter-spacing: normal; }
+.imported-bulk .container { padding-inline: 0; }
+.imported-bulk .sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.imported-bulk .brief-pictures, .imported-bulk .brief-sent { list-style: none; }
+.imported-bulk [id] { scroll-margin-top: 80px; }
+.imported-bulk .brief-error { overflow-wrap: anywhere; }
+
+/* Dark study components also appear in white bands; deepen their accents
+   so labels and slider values keep their contrast against the light surface. */
+.imported-bulk .bulk-band--white .experiment-dark { --study-gold: #987139; }
+
+/* Let more of the closing section's photograph show through its white veil. */
+.imported-bulk .bulk-sections .bulk-band--white .commission-veil {
+  background: rgb(255 255 255 / 84%);
+}
+
+/* The audience scenes are composed in portrait, with space below the
+   subjects for their captions. Keep that framing on single-column phones. */
+@media (max-width: 480px) {
+  .imported-bulk #who-we-make-for .serve-card { aspect-ratio: 3 / 4; }
+}
+
+/* Long anchor jumps and the host's pinned scenes need real section heights.
+   Source height estimates otherwise shift as the hero scrolls to the form. */
+.imported-bulk .experiment {
+  content-visibility: visible;
+  contain-intrinsic-size: none;
+}
