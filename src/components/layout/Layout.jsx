@@ -10,7 +10,6 @@ import { useSmoothScroll } from '../../lib/useSmoothScroll'
 import { useLocation } from '../../lib/router'
 import { EnquiryProvider } from '../../lib/enquiry'
 import ProgressBar from '../ui/ProgressBar'
-import PageIntro from '../ui/PageIntro'
 import ClickSpark from '../ui/ClickSpark'
 import Concierge from '../ui/Concierge'
 import EnquiryDrawer from '../ui/EnquiryDrawer'
@@ -57,7 +56,6 @@ export default function Layout({ children }) {
       <ClickSpark sparkColor="#0E3B2C" sparkSize={11} sparkRadius={16} sparkCount={8} duration={520}>
         <a href="#main" className="skip-link">Skip to content</a>
         <ProgressBar />
-        <PageIntro />
         <Navbar />
         {/* key forces a fresh mount per route so GSAP timelines re-run cleanly */}
         <main id="main" key={path}>{children}</main>
