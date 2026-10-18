@@ -13,11 +13,11 @@
   overflow: hidden;
   isolation: isolate;
   background: #07251B;            /* dark fallback before the film loads */
-  min-height: 100svh;
+  min-height: min(720px, calc(100svh - 80px));
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: var(--nav-clear) clamp(1.5rem, 3vh, 3rem);
+  padding-block: clamp(2.5rem, 5svh, 4rem);
 
   /* dark cinematic context, scoped to this section: white text + accents */
   --fg: #FFFFFF;
@@ -39,8 +39,8 @@
 /* the outline CTA: white on the film, fills white with an emerald label on hover */
 .her .btn--outline:hover { background: #FFFFFF; color: #0E3B2C; border-color: #FFFFFF; }
 
-/* Light chapter in the homepage's alternating section sequence. The film
-   remains a faint backdrop beneath emerald text on a white surface. */
+/* Keep the white chapter, with a clear window onto the film to the right.
+   Only the copy and stat band need a strong veil, not the whole video. */
 .her.her--white {
   --fg: #10382a;
   --fg-soft: #596e62;
@@ -59,8 +59,15 @@
   color: var(--fg);
 }
 .her--white .her-media { background: #fff; }
-.her--white .her-video { opacity: 0.08; }
-.her--white .her-scrim { background: #ffffff99; }
+.her--white .her-video { opacity: 1; filter: none; transform: none; }
+.her--white .her-scrim {
+  background:
+    linear-gradient(180deg, #ffffffcc, #ffffff00 28%),
+    linear-gradient(0deg, #fff 0%, #fffffff2 22%, #ffffff00 53%),
+    linear-gradient(90deg, #fff 0%, #fffffff5 31%, #ffffffcc 46%, #ffffff18 72%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
 
 /* ============================================================
    FILM LAYER — full-bleed background video + flat scrim
@@ -254,9 +261,9 @@
   /* let the section breathe to its content rather than forcing one screen;
      keeps the stacked prose + stats from cramping on shorter viewports */
   .her {
-    min-height: 100svh;
+    min-height: auto;
     justify-content: flex-start;
-    padding-block: var(--nav-clear) clamp(2rem, 5vh, 3.5rem);
+    padding-block: clamp(2.5rem, 5svh, 4rem);
   }
   .her-body { justify-content: center; gap: clamp(1.4rem, 3vh, 2.2rem); }
 
@@ -278,6 +285,20 @@
   .her-stat:first-child .her-stat-line,
   .her-stat:last-child  .her-stat-line { left: clamp(1rem, 4vw, 2rem); }
   .her-stat:nth-child(odd) { border-right: 1px solid var(--line-light); }
+
+  /* On narrow screens give the film its own visible area above the copy. */
+  .her--white { padding-top: 0; }
+  .her--white .her-media {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    flex: none;
+    height: clamp(200px, 56vw, 300px);
+    margin-bottom: 1rem;
+  }
+  .her--white .her-scrim {
+    background: linear-gradient(0deg, #fff, #ffffff00 45%);
+  }
 }
 
 /* Phone — a shorter, landscape-fit band rather than a full-screen portrait.
@@ -287,8 +308,9 @@
   .her {
     min-height: auto;          /* no full-screen lock — short, banner-like */
     justify-content: center;
-    padding-block: calc(var(--nav-clear) + clamp(1rem, 4vw, 1.8rem)) clamp(1.5rem, 5vw, 2.2rem);
+    padding-block: 2.5rem clamp(1.5rem, 5vw, 2.2rem);
   }
+  .her--white { padding-top: 0; }
   .her-body { gap: clamp(1rem, 4vw, 1.5rem); }
 
   /* slightly stronger scrim + softer film so type stays crisp on small,

@@ -42,8 +42,9 @@ export function useSmoothScroll() {
 export function scrollToSection(target) {
   const el = typeof target === 'string' ? document.querySelector(target) : target
   if (!el) return
+  const clearance = (document.querySelector('.nav')?.getBoundingClientRect().height || 68) + 12
   if (window.__lenis) {
-    window.__lenis.scrollTo(el, { offset: 0, duration: 1.4 })
+    window.__lenis.scrollTo(el, { offset: -clearance, duration: 1.4 })
   } else {
     el.scrollIntoView({ behavior: 'smooth' })
   }

@@ -5,10 +5,8 @@
    ============================================================ */
 import { useRef, useState, useEffect } from 'react'
 import { gsap, useGSAP, ScrollTrigger, prefersReducedMotion } from '../../lib/gsap'
-import { scrollToSection } from '../../lib/useSmoothScroll'
 import Reveal from '../ui/Reveal'
 import SectionHeader from '../ui/SectionHeader'
-import Button from '../ui/Button'
 import heritageBg from '../../../assets/HomePage/HeritageBG.mp4'
 import './Heritage.css'
 

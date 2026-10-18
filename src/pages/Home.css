@@ -24,6 +24,52 @@
 
 .home-page .man-bg-num { color: #f8f3e80d; }
 .home-page .rev-plate { background: #f8f3e809; }
+.home-page section[id] { scroll-margin-top: 80px; }
+
+/* Use the same measured spacing as the imported chapters. Long copy can
+   still grow naturally; the decorative space scales down on laptops. */
+.home-page :is(.man, .tl, .jrn) {
+  padding-block: clamp(40px, 6svh, 80px);
+}
+.home-page .man-inner .sh,
+.home-page .tl-container > .sh { margin-bottom: clamp(24px, 4svh, 48px); }
+.home-page .man-statement { margin-bottom: clamp(28px, 5svh, 56px); }
+.home-page .man-foot { padding-top: clamp(24px, 4svh, 40px); }
+.home-page .jrn-score { margin-top: 24px; }
+.home-page .jrn-feature { margin-top: clamp(24px, 4svh, 40px); }
+.home-page .rev { margin-top: clamp(28px, 4svh, 44px); }
+.home-page .rev-plate-col { width: 100%; max-width: min(22rem, 38svh); }
+
+@media (min-width: 901px) {
+  .home-page .tl-flow { height: clamp(300px, 48svh, 540px); }
+  .home-page :is(.tl, .jrn) .sh-top { margin-bottom: 18px; }
+  .home-page :is(.tl, .jrn) .sh-body { margin-top: 18px; }
+  .home-page .tl .sh-lead { margin-top: 18px; }
+}
+
+/* Reviews read as one editorial spread on desktop, rather than three
+   oversized blocks. Tablets and phones keep the natural stacked order. */
+@media (min-width: 1100px) {
+  .home-page .jrn > .container {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr);
+    column-gap: clamp(32px, 4vw, 64px);
+  }
+  .home-page .jrn .sh { grid-column: 1 / -1; margin-bottom: 0; }
+  .home-page .jrn-score { grid-column: 1 / -1; margin-top: 20px; padding-block: 14px; }
+  .home-page .jrn-feature { margin: 28px 0 0; align-self: center; text-align: left; }
+  .home-page .jrn-pull { font-size: clamp(28px, 2.8vw, 42px); }
+  .home-page .jrn-feature-cite { gap: 14px; font-size: 10px; }
+  .home-page .rev {
+    grid-template-columns: minmax(0, .32fr) minmax(0, .68fr);
+    gap: 28px;
+  }
+  .home-page .rev-plate { padding: 20px 14px; }
+  .home-page .rev-plate-mono { font-size: clamp(48px, 5vw, 72px); }
+  .home-page .rev-quote { font-size: clamp(24px, 2.2vw, 34px); }
+  .home-page .rev-cite { margin-top: 20px; }
+  .home-page .rev-bars { margin-top: 28px; }
+}
 
 @media (max-width: 640px) {
   .home-page .man .sh-kicker { font-size: clamp(1rem, 4.8vw, 1.25rem); }

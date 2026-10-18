@@ -33,15 +33,18 @@ export default function SplitText({
       const inners = ref.current.querySelectorAll('.st-inner')
 
       if (prefersReducedMotion) {
-        gsap.set(inners, { yPercent: 0 })
+        gsap.set(inners, { y: 0, yPercent: 0 })
         return
       }
 
-      gsap.set(inners, { yPercent: 118 })
       const rect = ref.current.getBoundingClientRect()
       const alreadyVisible = rect.top < window.innerHeight
-      gsap.to(inners, {
+      // Explicit start/end transforms prevent refreshes from retaining a
+      // pixel offset and leaving the words hidden inside their masks.
+      gsap.fromTo(inners, { y: 0, yPercent: 118 }, {
+        y: 0,
         yPercent: 0,
+        clearProps: 'transform',
         duration,
         ease: EASE_LONG,
         delay,
